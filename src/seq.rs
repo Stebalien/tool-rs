@@ -150,3 +150,26 @@ impl<'a, A> Triple for &'a [A; 3] {
         &self[2]
     }
 }
+
+// Slice
+
+impl<'a, A> Singleton for &'a [A] {
+    type First = Option<&'a A>;
+    fn first(self) -> Self::First {
+        self.get(0)
+    }
+}
+
+impl<'a, A> Pair for &'a [A] {
+    type Second = Option<&'a A>;
+    fn second(self) -> Self::Second {
+        self.get(1)
+    }
+}
+
+impl<'a, A> Triple for &'a [A] {
+    type Third = Option<&'a A>;
+    fn third(self) -> Self::Third {
+        self.get(2)
+    }
+}
