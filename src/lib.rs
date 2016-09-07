@@ -27,6 +27,12 @@ pub fn third<P: seq::Triple>(seq: P) -> P::Third {
     seq.third()
 }
 
+// TODO: Generic?
+/// Flip a length two tuple.
+pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
+    (b, a)
+}
+
 #[test]
 fn test_seq() {
     assert_eq!(first((1, 2)), 1);

@@ -1,13 +1,19 @@
+//! A bunch of traits for working with sequences.
+
+
+/// A sequence of one or more items.
 pub trait Singleton {
     type First;
     fn first(self) -> Self::First;
 }
 
+/// A sequence of two or more items.
 pub trait Pair: Singleton {
     type Second;
     fn second(self) -> Self::Second;
 }
 
+/// A sequence of three or more items.
 pub trait Triple: Pair {
     type Third;
     fn third(self) -> Self::Third;
