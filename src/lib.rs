@@ -1,3 +1,4 @@
+//! A grab-bag of functional tools.
 #![no_std]
 
 pub mod seq;
