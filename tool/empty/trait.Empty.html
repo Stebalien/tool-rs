@@ -47,22 +47,33 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1367' class='srclink' href='../../src/tool/src/empty.rs.html#2-4' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-1368' class='srclink' href='../../src/tool/src/empty.rs.html#2-4' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Empty {
-    fn <a href='#tymethod.empty' class='fnname'>empty</a>(&amp;self) -&gt; bool;
+    fn <a href='#tymethod.empty' class='fnname'>empty</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
 }</pre><div class='docblock'><p>Things that can be &quot;empty&quot;.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.empty' class='method stab '><span id='empty.v' class='invisible'><code>fn <a href='#tymethod.empty' class='fnname'>empty</a>(&amp;self) -&gt; bool</code></span></h3></div>
+        <h3 id='tymethod.empty' class='method stab '><span id='empty.v' class='invisible'><code>fn <a href='#tymethod.empty' class='fnname'>empty</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;'a,&nbsp;T:&nbsp;<a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a> + ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; Empty for &amp;'a T</code></li>
 <li><code>impl&lt;'a,&nbsp;T:&nbsp;<a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a> + ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; Empty for &amp;'a mut T</code></li>
 <li><code>impl&lt;T:&nbsp;<a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>&gt; Empty for <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;T&gt;</code></li>
 <li><code>impl&lt;T:&nbsp;<a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>,&nbsp;E&gt; Empty for <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T,&nbsp;E&gt;</code></li>
-<li><code>impl Empty for str</code></li>
-<li><code>impl&lt;T&gt; Empty for [T]</code></li>
+<li><code>impl Empty for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></li>
+<li><code>impl&lt;T&gt; Empty for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></li>
+<li><code>impl&lt;K,&nbsp;V,&nbsp;S&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;K,&nbsp;V,&nbsp;S&gt; <span class='where'>where K: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html' title='core::hash::Hash'>Hash</a>, S: <a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.BuildHasher.html' title='core::hash::BuildHasher'>BuildHasher</a></span></code></li>
+<li><code>impl&lt;K,&nbsp;V&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/btree/map/struct.BTreeMap.html' title='collections::btree::map::BTreeMap'>BTreeMap</a>&lt;K,&nbsp;V&gt;</code></li>
+<li><code>impl&lt;T&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;</code></li>
+<li><code>impl Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></li>
+<li><code>impl Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html' title='std::ffi::os_str::OsStr'>OsStr</a></code></li>
+<li><code>impl Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html' title='std::ffi::os_str::OsString'>OsString</a></code></li>
+<li><code>impl Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a></code></li>
+<li><code>impl Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html' title='std::ffi::c_str::CString'>CString</a></code></li>
+<li><code>impl&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;</code></li>
+<li><code>impl&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/rc/struct.Rc.html' title='alloc::rc::Rc'>Rc</a>&lt;T&gt;</code></li>
+<li><code>impl&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>&gt; Empty for <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;T&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/tool/empty/trait.Empty.js">
                  </script></section>
