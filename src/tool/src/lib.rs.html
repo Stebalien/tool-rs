@@ -151,7 +151,6 @@
 <span id="107">107</span>
 <span id="108">108</span>
 <span id="109">109</span>
-<span id="110">110</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A grab-bag of functional tools.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_std</span>]</span>
@@ -168,6 +167,7 @@
 }
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>seq</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ok</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>empty</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>unwrap</span>;
 
@@ -221,16 +221,14 @@
     <span class='op'>!</span><span class='ident'>value</span>.<span class='ident'>is_empty</span>()
 }
 
-<span class='doccomment'>/// Same as `Result::ok`. Useful for mapping.</span>
-<span class='doccomment'>///</span>
-<span class='doccomment'>/// If you want to do the same thing with `Option`, just use `tool::id`.</span>
+<span class='doccomment'>/// Converts `Result`-like values into `Option`s.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// ```rust</span>
 <span class='doccomment'>/// use tool::ok;</span>
 <span class='doccomment'>/// let filtered: Vec&lt;_&gt; = vec![Ok(1), Err(&quot;bad&quot;)].into_iter().filter_map(ok).collect();</span>
 <span class='doccomment'>/// assert_eq!(filtered, vec![1]);</span>
 <span class='doccomment'>/// ```</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ok</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>E</span><span class='op'>&gt;</span>(<span class='ident'>result</span>: <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>E</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ok</span><span class='op'>&lt;</span><span class='ident'>R</span>: <span class='ident'>ok</span>::<span class='prelude-val'>Ok</span><span class='op'>&gt;</span>(<span class='ident'>result</span>: <span class='ident'>R</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>R</span>::<span class='ident'>Value</span><span class='op'>&gt;</span> {
     <span class='ident'>result</span>.<span class='ident'>ok</span>()
 }
 
