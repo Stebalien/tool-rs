@@ -2,6 +2,7 @@
 #![no_std]
 
 pub mod seq;
+pub mod empty;
 
 /// The identity function.
 ///
@@ -26,6 +27,31 @@ pub fn second<P: seq::Second>(seq: P) -> P::Second {
 /// Get the third element of a sequence with at least three elements.
 pub fn third<P: seq::Third>(seq: P) -> P::Third {
     seq.third()
+}
+
+/// True if the value is "empty"
+///
+/// For example: `[]`, `""`, `Some([])`, `Ok([])`, `None::<T: Empty>`, etc...
+pub fn empty<T: empty::Empty>(value: &T) -> bool {
+    value.empty()
+}
+
+/// False if the value is "empty"
+///
+/// Shortcut for `|x|{ !empty(x) }`.
+///
+/// Example:
+///
+/// ```rust
+/// use tool::not_empty;
+/// let strings: Vec<_> = vec!["my string", "", "asdf", ""]
+///     .into_iter()
+///     .filter(non_empty)
+///     .collect();
+/// assert_eq!(strings, vec!["my string", "asdf"]);
+/// ```
+pub fn non_empty<T: empty::Empty>(value: &T) -> bool {
+    !value.empty()
 }
 
 // TODO: Generic?
