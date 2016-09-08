@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["Empty","Things that can be \"empty\"."]]});
+initSidebarItems({"trait":[["IsEmpty","Things that can be \"is_empty\"."]]});

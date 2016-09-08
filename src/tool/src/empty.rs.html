@@ -163,43 +163,43 @@
 <span id="119">119</span>
 <span id="120">120</span>
 </pre><pre class='rust '>
-<span class='doccomment'>/// Things that can be &quot;empty&quot;.</span>
-<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>Empty</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span>;
+<span class='doccomment'>/// Things that can be &quot;is_empty&quot;.</span>
+<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>IsEmpty</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span>;
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>Empty</span> <span class='op'>+</span> ?<span class='ident'>Sized</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>T</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        (<span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>IsEmpty</span> <span class='op'>+</span> ?<span class='ident'>Sized</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>T</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        (<span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>Empty</span> <span class='op'>+</span> ?<span class='ident'>Sized</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>T</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        (<span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>IsEmpty</span> <span class='op'>+</span> ?<span class='ident'>Sized</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>T</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        (<span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>Empty</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        <span class='self'>self</span>.<span class='ident'>as_ref</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>empty</span>()).<span class='ident'>unwrap_or</span>(<span class='bool-val'>true</span>)
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>IsEmpty</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        <span class='self'>self</span>.<span class='ident'>as_ref</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>is_empty</span>()).<span class='ident'>unwrap_or</span>(<span class='bool-val'>true</span>)
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>Empty</span>, <span class='ident'>E</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>E</span><span class='op'>&gt;</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        <span class='self'>self</span>.<span class='ident'>as_ref</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>empty</span>()).<span class='ident'>unwrap_or</span>(<span class='bool-val'>true</span>)
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>IsEmpty</span>, <span class='ident'>E</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>E</span><span class='op'>&gt;</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        <span class='self'>self</span>.<span class='ident'>as_ref</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>is_empty</span>()).<span class='ident'>unwrap_or</span>(<span class='bool-val'>true</span>)
     }
 }
 
-<span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>str</span> {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+<span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>str</span> {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
         <span class='self'>self</span>.<span class='ident'>is_empty</span>()
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> [<span class='ident'>T</span>] {
-    <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> [<span class='ident'>T</span>] {
+    <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
         <span class='self'>self</span>.<span class='ident'>is_empty</span>()
     }
 }
@@ -212,74 +212,74 @@
     <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>rc</span>::<span class='ident'>Rc</span>;
     <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>Arc</span>;
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span>, <span class='ident'>S</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span>, <span class='ident'>S</span><span class='op'>&gt;</span>
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span>, <span class='ident'>S</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span>, <span class='ident'>S</span><span class='op'>&gt;</span>
         <span class='kw'>where</span> <span class='ident'>K</span>: <span class='ident'>Eq</span> <span class='op'>+</span> <span class='ident'>Hash</span>,
               <span class='ident'>S</span>: <span class='ident'>BuildHasher</span>,
     {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>HashMap</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>BTreeMap</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span><span class='op'>&gt;</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>BTreeMap</span><span class='op'>&lt;</span><span class='ident'>K</span>, <span class='ident'>V</span><span class='op'>&gt;</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>BTreeMap</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>Vec</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>String</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+    <span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>String</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>str</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>OsStr</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+    <span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>OsStr</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>OsStr</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>OsString</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            <span class='self'>self</span>.<span class='ident'>is_empty</span>()
+    <span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>OsString</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            <span class='ident'>OsStr</span>::<span class='ident'>is_empty</span>(<span class='self'>self</span>)
         }
     }
 
-    <span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>CStr</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+    <span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>CStr</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
             <span class='kw'>unsafe</span> {
                 <span class='op'>*</span><span class='self'>self</span>.<span class='ident'>as_ptr</span>() <span class='op'>==</span> <span class='number'>0</span>
             }
         }
     }
 
-    <span class='kw'>impl</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>CString</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+    <span class='kw'>impl</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>CString</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
         }
     }
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>Empty</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>IsEmpty</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
         }
     }
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>Empty</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>Rc</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>IsEmpty</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>Rc</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
         }
     }
 
-    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>Empty</span><span class='op'>&gt;</span> <span class='ident'>Empty</span> <span class='kw'>for</span> <span class='ident'>Arc</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
-        <span class='kw'>fn</span> <span class='ident'>empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>empty</span>()
+    <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>IsEmpty</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='ident'>Arc</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> {
+        <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+            (<span class='kw-2'>&amp;</span><span class='op'>*</span><span class='op'>*</span><span class='self'>self</span>).<span class='ident'>is_empty</span>()
         }
     }
 }
