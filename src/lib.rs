@@ -1,6 +1,17 @@
 //! A grab-bag of functional tools.
 #![no_std]
 
+#[macro_use]
+#[cfg(feature = "use_std")]
+extern crate std;
+
+macro_rules! if_std {
+    ($($i:item)*) => ($(
+        #[cfg(feature = "use_std")]
+        $i
+    )*)
+}
+
 pub mod seq;
 pub mod empty;
 
@@ -43,7 +54,7 @@ pub fn empty<T: empty::Empty>(value: &T) -> bool {
 /// Example:
 ///
 /// ```rust
-/// use tool::not_empty;
+/// use tool::non_empty;
 /// let strings: Vec<_> = vec!["my string", "", "asdf", ""]
 ///     .into_iter()
 ///     .filter(non_empty)
