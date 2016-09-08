@@ -44,7 +44,7 @@ pub fn third<P: seq::Third>(seq: P) -> P::Third {
 
 /// True if the value is "empty"
 ///
-/// For example: `[]`, `""`, `Some([])`, `Ok([])`, `None::<T: Empty>`, etc...
+/// For example: `[]`, `""`, `Some([])`, `None::<T: Empty>`, etc...
 pub fn empty<T: empty::IsEmpty>(value: &T) -> bool {
     value.is_empty()
 }

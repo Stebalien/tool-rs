@@ -21,12 +21,6 @@ impl<T: IsEmpty> IsEmpty for Option<T> {
     }
 }
 
-impl<T: IsEmpty, E> IsEmpty for Result<T, E> {
-    fn is_empty(&self) -> bool {
-        self.as_ref().map(|x| x.is_empty()).unwrap_or(true)
-    }
-}
-
 impl IsEmpty for str {
     fn is_empty(&self) -> bool {
         self.is_empty()
