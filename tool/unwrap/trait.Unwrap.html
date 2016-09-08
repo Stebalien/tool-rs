@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `third` fn in crate `tool`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, third">
+    <meta name="description" content="API documentation for the Rust `Unwrap` trait in crate `tool`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Unwrap">
 
-    <title>tool::third - Rust</title>
+    <title>tool::unwrap::Unwrap - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>tool</a></p><script>window.sidebarCurrent = {name: 'third', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>tool</a>::<wbr><a href='index.html'>unwrap</a></p><script>window.sidebarCurrent = {name: 'Unwrap', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,14 +42,30 @@
         </form>
     </nav>
 
-    <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>tool</a>::<wbr><a class='fn' href=''>third</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tool</a>::<wbr><a href='index.html'>unwrap</a>::<wbr><a class='trait' href=''>Unwrap</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1477' class='srclink' href='../src/tool/src/lib.rs.html#40-42' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn third&lt;P:&nbsp;<a class='trait' href='../tool/seq/trait.Third.html' title='tool::seq::Third'>Third</a>&gt;(seq: P) -&gt; P::Third</pre><div class='docblock'><p>Get the third element of a sequence with at least three elements.</p>
-</div></section>
+               </span><a id='src-1451' class='srclink' href='../../src/tool/src/unwrap.rs.html#4-7' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Unwrap {
+    type <a href='#associatedtype.Value' class='type'>Value</a>;
+    fn <a href='#tymethod.unwrap' class='fnname'>unwrap</a>(self) -&gt; Self::Value;
+}</pre><div class='docblock'><p>Abstracts over unwrapping.</p>
+</div>
+            <h2 id='associated-types'>Associated Types</h2>
+            <div class='methods'>
+        <h3 id='associatedtype.Value' class='method stab '><span id='Value.t' class='invisible'><code>type <a href='#associatedtype.Value' class='type'>Value</a></code></span></h3></div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.unwrap' class='method stab '><span id='unwrap.v' class='invisible'><code>fn <a href='#tymethod.unwrap' class='fnname'>unwrap</a>(self) -&gt; Self::Value</code></span></h3></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;T&gt; Unwrap for <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;T&gt;</code></li>
+<li><code>impl&lt;T,&nbsp;E:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; Unwrap for <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T,&nbsp;E&gt;</code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/tool/unwrap/trait.Unwrap.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -103,13 +119,13 @@
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../";
         window.currentCrate = "tool";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script defer src="../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
