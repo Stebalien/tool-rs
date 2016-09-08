@@ -14,17 +14,17 @@ pub fn default<T: Default>() -> T {
 }
 
 /// Get the first element of a sequence with at least one element.
-pub fn first<P: seq::Singleton>(seq: P) -> P::First {
+pub fn first<P: seq::First>(seq: P) -> P::First {
     seq.first()
 }
 
 /// Get the second element of a sequence with at least to elements
-pub fn second<P: seq::Pair>(seq: P) -> P::Second {
+pub fn second<P: seq::Second>(seq: P) -> P::Second {
     seq.second()
 }
 
 /// Get the third element of a sequence with at least three elements.
-pub fn third<P: seq::Triple>(seq: P) -> P::Third {
+pub fn third<P: seq::Third>(seq: P) -> P::Third {
     seq.third()
 }
 
