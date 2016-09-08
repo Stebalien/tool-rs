@@ -13,6 +13,7 @@ macro_rules! if_std {
 }
 
 pub mod seq;
+pub mod ok;
 pub mod empty;
 pub mod unwrap;
 
@@ -66,16 +67,14 @@ pub fn non_empty<T: empty::IsEmpty>(value: &T) -> bool {
     !value.is_empty()
 }
 
-/// Same as `Result::ok`. Useful for mapping.
-///
-/// If you want to do the same thing with `Option`, just use `tool::id`.
+/// Converts `Result`-like values into `Option`s.
 ///
 /// ```rust
 /// use tool::ok;
 /// let filtered: Vec<_> = vec![Ok(1), Err("bad")].into_iter().filter_map(ok).collect();
 /// assert_eq!(filtered, vec![1]);
 /// ```
-pub fn ok<T, E>(result: Result<T, E>) -> Option<T> {
+pub fn ok<R: ok::Ok>(result: R) -> Option<R::Value> {
     result.ok()
 }
 
