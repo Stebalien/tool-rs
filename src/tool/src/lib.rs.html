@@ -162,11 +162,11 @@
 <span class='doccomment'>/// use tool::not_empty;</span>
 <span class='doccomment'>/// let strings: Vec&lt;_&gt; = vec![&quot;my string&quot;, &quot;&quot;, &quot;asdf&quot;, &quot;&quot;]</span>
 <span class='doccomment'>///     .into_iter()</span>
-<span class='doccomment'>///     .filter(not_empty)</span>
+<span class='doccomment'>///     .filter(non_empty)</span>
 <span class='doccomment'>///     .collect();</span>
 <span class='doccomment'>/// assert_eq!(strings, vec![&quot;my string&quot;, &quot;asdf&quot;]);</span>
 <span class='doccomment'>/// ```</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>not_empty</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>empty</span>::<span class='ident'>Empty</span><span class='op'>&gt;</span>(<span class='ident'>value</span>: <span class='kw-2'>&amp;</span><span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>non_empty</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>empty</span>::<span class='ident'>Empty</span><span class='op'>&gt;</span>(<span class='ident'>value</span>: <span class='kw-2'>&amp;</span><span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
     <span class='op'>!</span><span class='ident'>value</span>.<span class='ident'>empty</span>()
 }
 
