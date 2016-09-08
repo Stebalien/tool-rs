@@ -1,4 +1,9 @@
 [package]
-name = "fntools"
+name = "tool"
 version = "0.1.0"
-authors = ["Steven Allen <steven@stebalien.com>"]
+authors = ["Steven Allen <steven@stebalien.com>", "bluss"]
+description = "A grab-bag of tools for functional programming."
+
+repository = "https://github.com/Stebalien/tool/"
+license = "MIT/Apache-2.0"
+keywords = ["functional"]
