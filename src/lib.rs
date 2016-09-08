@@ -43,8 +43,8 @@ pub fn third<P: seq::Third>(seq: P) -> P::Third {
 /// True if the value is "empty"
 ///
 /// For example: `[]`, `""`, `Some([])`, `Ok([])`, `None::<T: Empty>`, etc...
-pub fn empty<T: empty::Empty>(value: &T) -> bool {
-    value.empty()
+pub fn empty<T: empty::IsEmpty>(value: &T) -> bool {
+    value.is_empty()
 }
 
 /// False if the value is "empty"
@@ -61,8 +61,8 @@ pub fn empty<T: empty::Empty>(value: &T) -> bool {
 ///     .collect();
 /// assert_eq!(strings, vec!["my string", "asdf"]);
 /// ```
-pub fn non_empty<T: empty::Empty>(value: &T) -> bool {
-    !value.empty()
+pub fn non_empty<T: empty::IsEmpty>(value: &T) -> bool {
+    !value.is_empty()
 }
 
 // TODO: Generic?
