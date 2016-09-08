@@ -65,6 +65,20 @@ pub fn non_empty<T: empty::IsEmpty>(value: &T) -> bool {
     !value.is_empty()
 }
 
+/// Same as `Result::ok`. Useful for mapping.
+///
+/// If you want to do the same thing with `Option`, just use `tool::id`.
+///
+/// ```rust
+/// use tool::ok;
+/// let filtered: Vec<_> = vec![Ok(1), Err("bad")].into_iter().filter_map(ok).collect();
+/// assert_eq!(filtered, vec![1]);
+/// ```
+pub fn ok<T, E>(result: Result<T, E>) -> Option<T> {
+    result.ok()
+}
+
+
 // TODO: Generic?
 /// Flip a length two tuple.
 pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
