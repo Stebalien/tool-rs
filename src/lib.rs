@@ -14,6 +14,7 @@ macro_rules! if_std {
 
 pub mod seq;
 pub mod empty;
+pub mod unwrap;
 
 /// The identity function.
 ///
@@ -76,6 +77,19 @@ pub fn non_empty<T: empty::IsEmpty>(value: &T) -> bool {
 /// ```
 pub fn ok<T, E>(result: Result<T, E>) -> Option<T> {
     result.ok()
+}
+
+/// Unwraps the value.
+///
+/// ```rust
+/// use tool::unwrap;
+/// let unwrapped: Vec<_> = vec![Result::Ok::<i32, ()>(1)].into_iter().map(unwrap).collect();
+/// assert_eq!(unwrapped, vec![1]);
+/// let unwrapped2: Vec<_> = vec![Some(2)].into_iter().map(unwrap).collect();
+/// assert_eq!(unwrapped2, vec![2]);
+/// ```
+pub fn unwrap<U: unwrap::Unwrap>(unwrappable: U) -> U::Value {
+    unwrappable.unwrap()
 }
 
 
