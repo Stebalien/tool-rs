@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["Empty","Types that are \"truthy\""]]});
+initSidebarItems({"trait":[["Empty","Things that can be \"empty\"."]]});

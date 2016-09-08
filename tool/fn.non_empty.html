@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1417' class='srclink' href='../src/tool/src/lib.rs.html#53-55' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-1417' class='srclink' href='../src/tool/src/lib.rs.html#64-66' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn non_empty&lt;T:&nbsp;<a class='trait' href='../tool/empty/trait.Empty.html' title='tool::empty::Empty'>Empty</a>&gt;(value: &amp;T) -&gt; bool</pre><div class='docblock'><p>False if the value is &quot;empty&quot;</p>
 
 <p>Shortcut for <code>|x|{ !empty(x) }</code>.</p>
@@ -55,7 +55,7 @@
 <p>Example:</p>
 
 <pre class='rust rust-example-rendered'>
-<span class='kw'>use</span> <span class='ident'>tool</span>::<span class='ident'>not_empty</span>;
+<span class='kw'>use</span> <span class='ident'>tool</span>::<span class='ident'>non_empty</span>;
 <span class='kw'>let</span> <span class='ident'>strings</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span>_<span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>vec</span><span class='macro'>!</span>[<span class='string'>&quot;my string&quot;</span>, <span class='string'>&quot;&quot;</span>, <span class='string'>&quot;asdf&quot;</span>, <span class='string'>&quot;&quot;</span>]
     .<span class='ident'>into_iter</span>()
     .<span class='ident'>filter</span>(<span class='ident'>non_empty</span>)

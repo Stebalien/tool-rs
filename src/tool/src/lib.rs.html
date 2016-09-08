@@ -113,9 +113,31 @@
 <span id="69">69</span>
 <span id="70">70</span>
 <span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
+<span id="78">78</span>
+<span id="79">79</span>
+<span id="80">80</span>
+<span id="81">81</span>
+<span id="82">82</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A grab-bag of functional tools.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_std</span>]</span>
+
+<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;use_std&quot;</span>)]</span>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>std</span>;
+
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>if_std</span> {
+    ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>:<span class='ident'>item</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> ($(
+        <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;use_std&quot;</span>)]</span>
+        <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>
+    )<span class='op'>*</span>)
+}
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>seq</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>empty</span>;
@@ -159,7 +181,7 @@
 <span class='doccomment'>/// Example:</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// ```rust</span>
-<span class='doccomment'>/// use tool::not_empty;</span>
+<span class='doccomment'>/// use tool::non_empty;</span>
 <span class='doccomment'>/// let strings: Vec&lt;_&gt; = vec![&quot;my string&quot;, &quot;&quot;, &quot;asdf&quot;, &quot;&quot;]</span>
 <span class='doccomment'>///     .into_iter()</span>
 <span class='doccomment'>///     .filter(non_empty)</span>
