@@ -1,6 +1,6 @@
 [package]
 name = "tool"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["Steven Allen <steven@stebalien.com>", "bluss"]
 description = "A grab-bag of tools for functional programming."
 
