@@ -47,72 +47,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-5' class='srclink' href='../../src/tool/src/seq.rs.html#5-8' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Singleton {
-    type <a href='#associatedtype.First' class='type'>First</a>;
-    fn <a href='#tymethod.first' class='fnname'>first</a>(self) -&gt; Self::First;
-}</pre><div class='docblock'><p>A sequence of one or more items.</p>
+               </span><a id='src-6' class='srclink' href='../../src/tool/src/seq.rs.html#9' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Singleton: <a class='trait' href='../../tool/seq/trait.First.html' title='tool::seq::First'>First</a> { }</pre><div class='docblock'><p>A sequence with one item.</p>
 </div>
-            <h2 id='associated-types'>Associated Types</h2>
-            <div class='methods'>
-        <h3 id='associatedtype.First' class='method stab '><span id='First.t' class='invisible'><code>type <a href='#associatedtype.First' class='type'>First</a></code></span></h3></div>
-            <h2 id='required-methods'>Required Methods</h2>
-            <div class='methods'>
-        <h3 id='tymethod.first' class='method stab '><span id='first.v' class='invisible'><code>fn <a href='#tymethod.first' class='fnname'>first</a>(self) -&gt; Self::First</code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;J&gt; Singleton for (J,)</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Singleton for &amp;'a (J,)</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Singleton for &amp;'a mut (J,)</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Singleton for &amp;'a [J; 1]</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Singleton for &amp;'a mut [J; 1]</code></li>
-<li><code>impl&lt;I,&nbsp;J&gt; Singleton for (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Singleton for &amp;'a [I; 2]</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Singleton for &amp;'a mut [I; 2]</code></li>
-<li><code>impl&lt;H,&nbsp;I,&nbsp;J&gt; Singleton for (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Singleton for &amp;'a [H; 3]</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Singleton for &amp;'a mut [H; 3]</code></li>
-<li><code>impl&lt;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Singleton for &amp;'a [G; 4]</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Singleton for &amp;'a mut [G; 4]</code></li>
-<li><code>impl&lt;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Singleton for &amp;'a [F; 5]</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Singleton for &amp;'a mut [F; 5]</code></li>
-<li><code>impl&lt;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Singleton for &amp;'a [E; 6]</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Singleton for &amp;'a mut [E; 6]</code></li>
-<li><code>impl&lt;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Singleton for &amp;'a [D; 7]</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Singleton for &amp;'a mut [D; 7]</code></li>
-<li><code>impl&lt;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Singleton for &amp;'a [C; 8]</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Singleton for &amp;'a mut [C; 8]</code></li>
-<li><code>impl&lt;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B&gt; Singleton for &amp;'a [B; 9]</code></li>
-<li><code>impl&lt;'a,&nbsp;B&gt; Singleton for &amp;'a mut [B; 9]</code></li>
-<li><code>impl&lt;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Singleton for &amp;'a mut (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a [A; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a mut [A; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a [A]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a mut [A]</code></li>
+    <li><code>impl&lt;A&gt; Singleton for (A,)</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a (A,)</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a mut (A,)</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a [A; 1]</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Singleton for &amp;'a mut [A; 1]</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/tool/seq/trait.Singleton.js">
                  </script></section>

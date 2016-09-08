@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `flip` fn in crate `tool`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, flip">
+    <meta name="description" content="API documentation for the Rust `Empty` trait in crate `tool`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Empty">
 
-    <title>tool::flip - Rust</title>
+    <title>tool::seq::Empty - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>tool</a></p><script>window.sidebarCurrent = {name: 'flip', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>tool</a>::<wbr><a href='index.html'>seq</a></p><script>window.sidebarCurrent = {name: 'Empty', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,14 +42,26 @@
         </form>
     </nav>
 
-    <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>tool</a>::<wbr><a class='fn' href=''>flip</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tool</a>::<wbr><a href='index.html'>seq</a>::<wbr><a class='trait' href=''>Empty</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1380' class='srclink' href='../src/tool/src/lib.rs.html#33-35' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn flip&lt;A,&nbsp;B&gt;((a, b): (A, B)) -&gt; (B, A)</pre><div class='docblock'><p>Flip a length two tuple.</p>
-</div></section>
+               </span><a id='src-5' class='srclink' href='../../src/tool/src/seq.rs.html#6' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Empty { }</pre><div class='docblock'><p>A sequence with no items.</p>
+
+<p>If you ever find a use for this, please submit a PR with an example.</p>
+</div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl Empty for ()</code></li>
+<li><code>impl&lt;'a&gt; Empty for &amp;'a ()</code></li>
+<li><code>impl&lt;'a&gt; Empty for &amp;'a mut ()</code></li>
+<li><code>impl&lt;'a,&nbsp;T&gt; Empty for &amp;'a [T; 0]</code></li>
+<li><code>impl&lt;'a,&nbsp;T&gt; Empty for &amp;'a mut [T; 0]</code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/tool/seq/trait.Empty.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -103,13 +115,13 @@
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../";
         window.currentCrate = "tool";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script defer src="../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

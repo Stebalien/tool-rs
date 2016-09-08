@@ -47,67 +47,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-9' class='srclink' href='../../src/tool/src/seq.rs.html#11-14' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Pair: <a class='trait' href='../../tool/seq/trait.Singleton.html' title='tool::seq::Singleton'>Singleton</a> {
-    type <a href='#associatedtype.Second' class='type'>Second</a>;
-    fn <a href='#tymethod.second' class='fnname'>second</a>(self) -&gt; Self::Second;
-}</pre><div class='docblock'><p>A sequence of two or more items.</p>
+               </span><a id='src-7' class='srclink' href='../../src/tool/src/seq.rs.html#12' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Pair: <a class='trait' href='../../tool/seq/trait.First.html' title='tool::seq::First'>First</a> + <a class='trait' href='../../tool/seq/trait.Second.html' title='tool::seq::Second'>Second</a> { }</pre><div class='docblock'><p>A sequence with two items.</p>
 </div>
-            <h2 id='associated-types'>Associated Types</h2>
-            <div class='methods'>
-        <h3 id='associatedtype.Second' class='method stab '><span id='Second.t' class='invisible'><code>type <a href='#associatedtype.Second' class='type'>Second</a></code></span></h3></div>
-            <h2 id='required-methods'>Required Methods</h2>
-            <div class='methods'>
-        <h3 id='tymethod.second' class='method stab '><span id='second.v' class='invisible'><code>fn <a href='#tymethod.second' class='fnname'>second</a>(self) -&gt; Self::Second</code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;I,&nbsp;J&gt; Pair for (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Pair for &amp;'a [J; 2]</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Pair for &amp;'a mut [J; 2]</code></li>
-<li><code>impl&lt;H,&nbsp;I,&nbsp;J&gt; Pair for (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Pair for &amp;'a [I; 3]</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Pair for &amp;'a mut [I; 3]</code></li>
-<li><code>impl&lt;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Pair for &amp;'a [H; 4]</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Pair for &amp;'a mut [H; 4]</code></li>
-<li><code>impl&lt;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Pair for &amp;'a [G; 5]</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Pair for &amp;'a mut [G; 5]</code></li>
-<li><code>impl&lt;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Pair for &amp;'a [F; 6]</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Pair for &amp;'a mut [F; 6]</code></li>
-<li><code>impl&lt;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Pair for &amp;'a [E; 7]</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Pair for &amp;'a mut [E; 7]</code></li>
-<li><code>impl&lt;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Pair for &amp;'a [D; 8]</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Pair for &amp;'a mut [D; 8]</code></li>
-<li><code>impl&lt;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Pair for &amp;'a [C; 9]</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Pair for &amp;'a mut [C; 9]</code></li>
-<li><code>impl&lt;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Pair for &amp;'a mut (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B&gt; Pair for &amp;'a [B; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;B&gt; Pair for &amp;'a mut [B; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Pair for &amp;'a [A]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Pair for &amp;'a mut [A]</code></li>
+    <li><code>impl&lt;A,&nbsp;B&gt; Pair for (A, B)</code></li>
+<li><code>impl&lt;'a,&nbsp;A,&nbsp;B&gt; Pair for &amp;'a (A, B)</code></li>
+<li><code>impl&lt;'a,&nbsp;A,&nbsp;B&gt; Pair for &amp;'a mut (A, B)</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Pair for &amp;'a [A; 2]</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Pair for &amp;'a mut [A; 2]</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/tool/seq/trait.Pair.js">
                  </script></section>

@@ -47,62 +47,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-13' class='srclink' href='../../src/tool/src/seq.rs.html#17-20' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Triple: <a class='trait' href='../../tool/seq/trait.Pair.html' title='tool::seq::Pair'>Pair</a> {
-    type <a href='#associatedtype.Third' class='type'>Third</a>;
-    fn <a href='#tymethod.third' class='fnname'>third</a>(self) -&gt; Self::Third;
-}</pre><div class='docblock'><p>A sequence of three or more items.</p>
+               </span><a id='src-8' class='srclink' href='../../src/tool/src/seq.rs.html#15' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Triple: <a class='trait' href='../../tool/seq/trait.First.html' title='tool::seq::First'>First</a> + <a class='trait' href='../../tool/seq/trait.Second.html' title='tool::seq::Second'>Second</a> + <a class='trait' href='../../tool/seq/trait.Third.html' title='tool::seq::Third'>Third</a> { }</pre><div class='docblock'><p>A sequence with three items.</p>
 </div>
-            <h2 id='associated-types'>Associated Types</h2>
-            <div class='methods'>
-        <h3 id='associatedtype.Third' class='method stab '><span id='Third.t' class='invisible'><code>type <a href='#associatedtype.Third' class='type'>Third</a></code></span></h3></div>
-            <h2 id='required-methods'>Required Methods</h2>
-            <div class='methods'>
-        <h3 id='tymethod.third' class='method stab '><span id='third.v' class='invisible'><code>fn <a href='#tymethod.third' class='fnname'>third</a>(self) -&gt; Self::Third</code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;H,&nbsp;I,&nbsp;J&gt; Triple for (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Triple for &amp;'a [J; 3]</code></li>
-<li><code>impl&lt;'a,&nbsp;J&gt; Triple for &amp;'a mut [J; 3]</code></li>
-<li><code>impl&lt;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Triple for &amp;'a [I; 4]</code></li>
-<li><code>impl&lt;'a,&nbsp;I&gt; Triple for &amp;'a mut [I; 4]</code></li>
-<li><code>impl&lt;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Triple for &amp;'a [H; 5]</code></li>
-<li><code>impl&lt;'a,&nbsp;H&gt; Triple for &amp;'a mut [H; 5]</code></li>
-<li><code>impl&lt;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Triple for &amp;'a [G; 6]</code></li>
-<li><code>impl&lt;'a,&nbsp;G&gt; Triple for &amp;'a mut [G; 6]</code></li>
-<li><code>impl&lt;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Triple for &amp;'a [F; 7]</code></li>
-<li><code>impl&lt;'a,&nbsp;F&gt; Triple for &amp;'a mut [F; 7]</code></li>
-<li><code>impl&lt;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Triple for &amp;'a [E; 8]</code></li>
-<li><code>impl&lt;'a,&nbsp;E&gt; Triple for &amp;'a mut [E; 8]</code></li>
-<li><code>impl&lt;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Triple for &amp;'a [D; 9]</code></li>
-<li><code>impl&lt;'a,&nbsp;D&gt; Triple for &amp;'a mut [D; 9]</code></li>
-<li><code>impl&lt;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;D,&nbsp;E,&nbsp;F,&nbsp;G,&nbsp;H,&nbsp;I,&nbsp;J&gt; Triple for &amp;'a mut (A, B, C, D, E, F, G, H, I, J)</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Triple for &amp;'a [C; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;C&gt; Triple for &amp;'a mut [C; 10]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Triple for &amp;'a [A]</code></li>
-<li><code>impl&lt;'a,&nbsp;A&gt; Triple for &amp;'a mut [A]</code></li>
+    <li><code>impl&lt;A,&nbsp;B,&nbsp;C&gt; Triple for (A, B, C)</code></li>
+<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C&gt; Triple for &amp;'a (A, B, C)</code></li>
+<li><code>impl&lt;'a,&nbsp;A,&nbsp;B,&nbsp;C&gt; Triple for &amp;'a mut (A, B, C)</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Triple for &amp;'a [A; 3]</code></li>
+<li><code>impl&lt;'a,&nbsp;A&gt; Triple for &amp;'a mut [A; 3]</code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/tool/seq/trait.Triple.js">
                  </script></section>

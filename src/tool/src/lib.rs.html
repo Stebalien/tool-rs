@@ -104,17 +104,17 @@
 }
 
 <span class='doccomment'>/// Get the first element of a sequence with at least one element.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>first</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>Singleton</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>First</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>first</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>First</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>First</span> {
     <span class='ident'>seq</span>.<span class='ident'>first</span>()
 }
 
 <span class='doccomment'>/// Get the second element of a sequence with at least to elements</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>second</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>Pair</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>Second</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>second</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>Second</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>Second</span> {
     <span class='ident'>seq</span>.<span class='ident'>second</span>()
 }
 
 <span class='doccomment'>/// Get the third element of a sequence with at least three elements.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>third</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>Triple</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>Third</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>third</span><span class='op'>&lt;</span><span class='ident'>P</span>: <span class='ident'>seq</span>::<span class='ident'>Third</span><span class='op'>&gt;</span>(<span class='ident'>seq</span>: <span class='ident'>P</span>) <span class='op'>-&gt;</span> <span class='ident'>P</span>::<span class='ident'>Third</span> {
     <span class='ident'>seq</span>.<span class='ident'>third</span>()
 }
 
