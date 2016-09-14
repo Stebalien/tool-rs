@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["empty",""],["misc",""],["monad",""],["prelude","Useful functions to glob import."],["sequence","A bunch of traits for working with sequences."]]});
+initSidebarItems({"mod":[["empty",""],["misc","Miscellaneous functions that don't really have a home."],["monad",""],["prelude","Useful functions to glob import."],["sequence","A bunch of traits for working with sequences."]]});
