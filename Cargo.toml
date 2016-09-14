@@ -11,4 +11,5 @@ keywords = ["functional"]
 
 [features]
 use_std = []
+unstable = []
 default = ["use_std"]

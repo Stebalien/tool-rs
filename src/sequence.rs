@@ -1,5 +1,10 @@
 //! A bunch of traits for working with sequences.
 
+/// Useful functions exported by `tool::sequence`.
+pub mod prelude {
+    pub use super::{first, second, third, flip};
+}
+
 /// A sequence with no items.
 ///
 /// If you ever find a use for this, please submit a PR with an example.
@@ -30,6 +35,27 @@ pub trait Second {
 pub trait Third {
     type Third;
     fn third(self) -> Self::Third;
+}
+
+/// Get the first element of a sequence with at least one element.
+pub fn first<P: First>(seq: P) -> P::First {
+    seq.first()
+}
+
+/// Get the second element of a sequence with at least to elements
+pub fn second<P: Second>(seq: P) -> P::Second {
+    seq.second()
+}
+
+/// Get the third element of a sequence with at least three elements.
+pub fn third<P: Third>(seq: P) -> P::Third {
+    seq.third()
+}
+
+// TODO: Generic?
+/// Flip a length two tuple.
+pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
+    (b, a)
 }
 
 macro_rules! one {

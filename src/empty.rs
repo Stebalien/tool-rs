@@ -1,6 +1,36 @@
+/// Useful functions exported by `tool::empty`.
+pub mod prelude {
+    pub use super::{empty, non_empty};
+}
+
 /// Things that can be "is_empty".
 pub trait IsEmpty {
     fn is_empty(&self) -> bool;
+}
+
+/// True if the value is "empty"
+///
+/// For example: `[]`, `""`, `Some([])`, `None::<T: Empty>`, etc...
+pub fn empty<T: ?Sized + IsEmpty>(value: &T) -> bool {
+    value.is_empty()
+}
+
+/// False if the value is "empty"
+///
+/// Shortcut for `|x|{ !empty(x) }`.
+///
+/// Example:
+///
+/// ```rust
+/// use tool::non_empty;
+/// let strings: Vec<_> = vec!["my string", "", "asdf", ""]
+///     .into_iter()
+///     .filter(non_empty)
+///     .collect();
+/// assert_eq!(strings, vec!["my string", "asdf"]);
+/// ```
+pub fn non_empty<T: ?Sized + IsEmpty>(value: &T) -> bool {
+    !value.is_empty()
 }
 
 impl<'a, T: IsEmpty + ?Sized> IsEmpty for &'a T {
