@@ -1,5 +1,6 @@
 //! Higher-order functions (functions that operate on functions)
 
+/// Useful functions exported by `tool::functor`.
 pub mod prelude {
     pub use super::compose;
 }

@@ -1,3 +1,5 @@
+//! Miscellaneous functions that don't really have a home.
+
 /// The identity function.
 ///
 /// Literally, just returns the passed-in value.
