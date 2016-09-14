@@ -71,6 +71,7 @@ pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
     (b, a)
 }
 
+/// We treat slices as infinite lists of `Option<Item>`s.
 impl<'a, A> Cons for &'a [A] {
     type Head = Option<&'a A>;
     type Tail = &'a [A];
@@ -84,6 +85,7 @@ impl<'a, A> Cons for &'a [A] {
     }
 }
 
+/// We treat slices as infinite lists of `Option<Item>`s.
 impl<'a, A> Cons for &'a mut [A] {
     type Head = Option<&'a mut A>;
     type Tail = &'a mut [A];
