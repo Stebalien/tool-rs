@@ -3,7 +3,7 @@
 /// Useful functions exported by `tool::sequence`.
 pub mod prelude {
     #[doc(inline)]
-    pub use super::{first, second, third, flip};
+    pub use super::{first, second, third, flip, uncons};
 }
 
 /// A sequence with no items.
