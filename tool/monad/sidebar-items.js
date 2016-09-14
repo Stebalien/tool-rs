@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["ok","Converts `Result`-like values into `Option`s."],["unwrap","Unwraps the value."]],"mod":[["prelude","Useful functions exported by `tool::monad`."]],"trait":[["Ok","Types of values that can be \"Ok\"."],["Unwrap","Abstracts over unwrapping."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["IsEmpty","Things that can be \"is_empty\"."]]});
+initSidebarItems({"fn":[["empty","True if the value is \"empty\""],["non_empty","False if the value is \"empty\""]],"mod":[["prelude","Useful functions exported by `tool::empty`."]],"trait":[["IsEmpty","Things that can be \"is_empty\"."]]});

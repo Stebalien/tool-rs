@@ -156,10 +156,70 @@
 <span id="112">112</span>
 <span id="113">113</span>
 <span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
 </pre><pre class='rust '>
+<span class='doccomment'>/// Useful functions exported by `tool::empty`.</span>
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>prelude</span> {
+    <span class='kw'>pub</span> <span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>empty</span>, <span class='ident'>non_empty</span>};
+}
+
 <span class='doccomment'>/// Things that can be &quot;is_empty&quot;.</span>
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>IsEmpty</span> {
     <span class='kw'>fn</span> <span class='ident'>is_empty</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span>;
+}
+
+<span class='doccomment'>/// True if the value is &quot;empty&quot;</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// For example: `[]`, `&quot;&quot;`, `Some([])`, `None::&lt;T: Empty&gt;`, etc...</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>empty</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>IsEmpty</span><span class='op'>&gt;</span>(<span class='ident'>value</span>: <span class='kw-2'>&amp;</span><span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+    <span class='ident'>value</span>.<span class='ident'>is_empty</span>()
+}
+
+<span class='doccomment'>/// False if the value is &quot;empty&quot;</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// Shortcut for `|x|{ !empty(x) }`.</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// Example:</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// ```rust</span>
+<span class='doccomment'>/// use tool::non_empty;</span>
+<span class='doccomment'>/// let strings: Vec&lt;_&gt; = vec![&quot;my string&quot;, &quot;&quot;, &quot;asdf&quot;, &quot;&quot;]</span>
+<span class='doccomment'>///     .into_iter()</span>
+<span class='doccomment'>///     .filter(non_empty)</span>
+<span class='doccomment'>///     .collect();</span>
+<span class='doccomment'>/// assert_eq!(strings, vec![&quot;my string&quot;, &quot;asdf&quot;]);</span>
+<span class='doccomment'>/// ```</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>non_empty</span><span class='op'>&lt;</span><span class='ident'>T</span>: ?<span class='ident'>Sized</span> <span class='op'>+</span> <span class='ident'>IsEmpty</span><span class='op'>&gt;</span>(<span class='ident'>value</span>: <span class='kw-2'>&amp;</span><span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+    <span class='op'>!</span><span class='ident'>value</span>.<span class='ident'>is_empty</span>()
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>IsEmpty</span> <span class='op'>+</span> ?<span class='ident'>Sized</span><span class='op'>&gt;</span> <span class='ident'>IsEmpty</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>T</span> {
