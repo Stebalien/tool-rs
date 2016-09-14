@@ -2,8 +2,8 @@
 
 /// Useful functions exported by `tool::functor`.
 pub mod prelude {
-    pub use super::compose;
-    pub use super::fix;
+    #[doc(inline)]
+    pub use super::{compose, fix};
 }
 
 /// Compose two functions.

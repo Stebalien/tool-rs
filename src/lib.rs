@@ -28,11 +28,17 @@ pub mod misc;
 /// individual module.
 pub mod prelude {
     #[cfg(feature = "unstable")]
+    #[doc(inline)]
     pub use functor::prelude::*;
+    #[doc(inline)]
     pub use sequence::prelude::*;
+    #[doc(inline)]
     pub use empty::prelude::*;
+    #[doc(inline)]
     pub use monad::prelude::*;
+    #[doc(inline)]
     pub use misc::{default, id};
 }
 
+#[doc(inline)]
 pub use prelude::*;

@@ -1,7 +1,8 @@
-//! A bunch of traits for working with sequences.
+//! A bunch of traits and functions for working with sequences.
 
 /// Useful functions exported by `tool::sequence`.
 pub mod prelude {
+    #[doc(inline)]
     pub use super::{first, second, third, flip};
 }
 

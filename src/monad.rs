@@ -1,7 +1,10 @@
+//! Useful traits and functions for working with monads (`Option`/`Result`).
+
 use core::fmt::Debug;
 
 /// Useful functions exported by `tool::monad`.
 pub mod prelude {
+    #[doc(inline)]
     pub use super::{ok, unwrap};
 }
 

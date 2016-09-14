@@ -1,5 +1,8 @@
+//! Traits and functions for determining if some collection is empty.
+
 /// Useful functions exported by `tool::empty`.
 pub mod prelude {
+    #[doc(inline)]
     pub use super::{empty, non_empty};
 }
 
