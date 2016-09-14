@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"fn":[["first","Get the first element of a sequence with at least one element."],["flip","Flip a length two tuple."],["second","Get the second element of a sequence with at least to elements"],["third","Get the third element of a sequence with at least three elements."]]});

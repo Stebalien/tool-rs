@@ -80,6 +80,12 @@
 <span id="36">36</span>
 <span id="37">37</span>
 <span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A grab-bag of functional tools.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_std</span>]</span>
@@ -111,13 +117,19 @@
 <span class='doccomment'>/// individual module.</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>prelude</span> {
     <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;unstable&quot;</span>)]</span>
+    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>functor</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>sequence</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>empty</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>monad</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>misc</span>::{<span class='ident'>default</span>, <span class='ident'>id</span>};
 }
 
+<span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>inline</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>prelude</span>::<span class='op'>*</span>;
 </pre>
 </section>

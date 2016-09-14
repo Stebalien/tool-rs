@@ -47,16 +47,15 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/tool/src/lib.rs.html#1-38' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/tool/src/lib.rs.html#1-44' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>A grab-bag of functional tools.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use <a class='mod' href='../tool/prelude/index.html' title='tool::prelude'>prelude</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='mod' href='empty/index.html'
                                   title='tool::empty'>empty</a></td>
                            <td class='docblock short'>
-                                
+                                <p>Traits and functions for determining if some collection is empty.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -70,7 +69,7 @@
                            <td><a class='mod' href='monad/index.html'
                                   title='tool::monad'>monad</a></td>
                            <td class='docblock short'>
-                                
+                                <p>Useful traits and functions for working with monads (<code>Option</code>/<code>Result</code>).</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -84,7 +83,78 @@
                            <td><a class='mod' href='sequence/index.html'
                                   title='tool::sequence'>sequence</a></td>
                            <td class='docblock short'>
-                                <p>A bunch of traits for working with sequences.</p>
+                                <p>A bunch of traits and functions for working with sequences.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.default.html'
+                                  title='tool::default'>default</a></td>
+                           <td class='docblock short'>
+                                <p>Return a default value.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.empty.html'
+                                  title='tool::empty'>empty</a></td>
+                           <td class='docblock short'>
+                                <p>True if the value is &quot;empty&quot;</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.first.html'
+                                  title='tool::first'>first</a></td>
+                           <td class='docblock short'>
+                                <p>Get the first element of a sequence with at least one element.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.flip.html'
+                                  title='tool::flip'>flip</a></td>
+                           <td class='docblock short'>
+                                <p>Flip a length two tuple.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.id.html'
+                                  title='tool::id'>id</a></td>
+                           <td class='docblock short'>
+                                <p>The identity function.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.non_empty.html'
+                                  title='tool::non_empty'>non_empty</a></td>
+                           <td class='docblock short'>
+                                <p>False if the value is &quot;empty&quot;</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.ok.html'
+                                  title='tool::ok'>ok</a></td>
+                           <td class='docblock short'>
+                                <p>Converts <code>Result</code>-like values into <code>Option</code>s.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.second.html'
+                                  title='tool::second'>second</a></td>
+                           <td class='docblock short'>
+                                <p>Get the second element of a sequence with at least to elements</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.third.html'
+                                  title='tool::third'>third</a></td>
+                           <td class='docblock short'>
+                                <p>Get the third element of a sequence with at least three elements.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.unwrap.html'
+                                  title='tool::unwrap'>unwrap</a></td>
+                           <td class='docblock short'>
+                                <p>Unwraps the value.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

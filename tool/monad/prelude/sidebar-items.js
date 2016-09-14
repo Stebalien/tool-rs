@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"fn":[["ok","Converts `Result`-like values into `Option`s."],["unwrap","Unwraps the value."]]});

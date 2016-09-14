@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"fn":[["empty","True if the value is \"empty\""],["non_empty","False if the value is \"empty\""]]});
