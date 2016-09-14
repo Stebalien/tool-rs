@@ -1,5 +1,4 @@
 extern crate tool;
-use tool::prelude::*;
 
 macro_rules! if_unstable {
     ($($i:item)*) => ($(
@@ -9,6 +8,7 @@ macro_rules! if_unstable {
 }
 
 if_unstable! {
+    use tool::prelude::*;
     #[test]
     fn test_compose() {
         assert!(compose(empty, first)(("", "asdf")));
