@@ -3,6 +3,7 @@
 /// Useful functions exported by `tool::functor`.
 pub mod prelude {
     pub use super::compose;
+    pub use super::fix;
 }
 
 /// Compose two functions.
@@ -14,6 +15,44 @@ pub fn compose<A, B, C, F, G>(f: F,  g: G) -> impl Fn(A) -> C
           F: Fn(B) -> C,
 {
     move |a: A| { f(g(a)) }
+}
+
+/// A Y-Combinator.
+///
+/// Takes a function `f` and returns a fixpoint of `f`.
+///
+/// In English, this allows you to define a recursive closure, something that's
+/// normally quite hard to do in rust. Rather than try to explain it, here's an
+/// illustration that should speak for itself (as long as you know the recursive
+/// definition of Fibonacci numbers).
+///
+/// ```rust
+/// use tool::prelude::*;
+///
+/// let fib = fix(|f, x| {
+///     if x == 0 || x == 1 {
+///         x
+///     } else {
+///         // `f` is `fib`
+///         f(x - 1) + f(x - 2)
+///     }
+/// });
+/// assert_eq!(55, fib(10));
+/// ```
+pub fn fix<A, B, F>(f: F) -> impl Fn(A) -> B
+    where F: Fn(&Fn(A)-> B, A) -> B
+{
+    use std::cell::Cell;
+
+    move |a: A| {
+        // Hopefully optimized away. Can probably use some unsafe magic to help the optimizer...
+        let tmp_fn = |_: A| -> B { panic!("Hmm... not good.") };
+        let (fun_holder, fun);
+        fun_holder = Cell::new(&tmp_fn as &Fn(A) -> B);
+        fun = |ai: A| { f(fun_holder.get(), ai) };
+        fun_holder.set(&fun as &Fn(A) -> B);
+        f(fun_holder.get(), a)
+    }
 }
 
 // TODO: Someday
