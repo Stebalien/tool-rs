@@ -38,6 +38,13 @@ pub trait Third {
     fn third(self) -> Self::Third;
 }
 
+/// A sequence that can be represented as a cons cell.
+pub trait Cons {
+    type Head;
+    type Tail;
+    fn uncons(self) -> (Self::Head, Self::Tail);
+}
+
 /// Get the first element of a sequence with at least one element.
 pub fn first<P: First>(seq: P) -> P::First {
     seq.first()
@@ -53,14 +60,49 @@ pub fn third<P: Third>(seq: P) -> P::Third {
     seq.third()
 }
 
+/// Split a sequence of at least one item into a head and tail.
+pub fn uncons<L: Cons>(list: L) -> (L::Head, L::Tail) {
+    list.uncons()
+}
+
 // TODO: Generic?
 /// Flip a length two tuple.
 pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
     (b, a)
 }
 
+impl<'a, A> Cons for &'a [A] {
+    type Head = Option<&'a A>;
+    type Tail = &'a [A];
+    fn uncons(self) -> (Self::Head, Self::Tail) {
+        if self.len() > 0 {
+            let (a, b) = self.split_at(1);
+            (Some(&a[0]), b)
+        } else {
+            (None, &[])
+        }
+    }
+}
+
+impl<'a, A> Cons for &'a mut [A] {
+    type Head = Option<&'a mut A>;
+    type Tail = &'a mut [A];
+    fn uncons(self) -> (Self::Head, Self::Tail) {
+        if self.len() > 0 {
+            let (a, b) = self.split_at_mut(1);
+            (Some(&mut a[0]), b)
+        } else {
+            (None, &mut [])
+        }
+    }
+}
+
 macro_rules! one {
     ($($t:tt)*) => {1}
+}
+
+macro_rules! expr {
+    ($e:expr) => {$e}
 }
 macro_rules! count {
     ($($t:ident),*) => {
@@ -68,178 +110,98 @@ macro_rules! count {
     }
 }
 
-macro_rules! call {
-    ($mac:ident) => {
-        $mac!{A, B, C, D, E, F, G, H, I, J,}
-    }
-}
-
-macro_rules! impl_first {
+macro_rules! impl_list {
     () => {};
-    ($F:ident, $($A:ident,)*) => {
-        impl_first!{$($A,)*}
-        impl<$F, $($A),*> First for ($F, $($A),*) {
-            type First = $F;
-            fn first(self) -> Self::First {
-                self.0
+    ($Fi:tt $Ft:ident, $($Ai:tt $At:ident,)*) => {
+        impl<$Ft, $($At),*> Cons for ($Ft, $($At),*) {
+            type Head = $Ft;
+            type Tail = ($($At,)*);
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                expr!((self.$Fi, ($(self.$Ai,)*)))
             }
         }
 
-        impl<'a, $F, $($A),*> First for &'a ($F, $($A),*) {
-            type First = &'a $F;
-            fn first(self) -> Self::First {
-                &self.0
+        impl<'a, $Ft, $($At),*> Cons for &'a ($Ft, $($At),*) {
+            type Head = &'a $Ft;
+            type Tail = ($(&'a $At,)*);
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                expr!((&self.$Fi, ($(&self.$Ai,)*)))
             }
         }
 
-        impl<'a, $F, $($A),*> First for &'a mut ($F, $($A),*) {
-            type First = &'a mut $F;
-            fn first(self) -> Self::First {
-                &mut self.0
-            }
-        }
-        impl<'a, $F> First for &'a [$F; count!($F $(,$A)*)] {
-            type First = &'a $F;
-            fn first(self) -> Self::First {
-                &self[0]
+        impl<'a, $Ft, $($At),*> Cons for &'a mut ($Ft, $($At),*) {
+            type Head = &'a mut $Ft;
+            type Tail = ($(&'a mut $At,)*);
+            #[inline(always)]
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                expr!((&mut self.$Fi, ($(&mut self.$Ai,)*)))
             }
         }
 
-        impl<'a, $F> First for &'a mut [$F; count!($F $(,$A)*)] {
-            type First = &'a mut $F;
-            fn first(self) -> Self::First {
-                &mut self[0]
+        impl<'a, $Ft> Cons for &'a [$Ft; count!($Ft $(,$At)*)] {
+            type Head = &'a $Ft;
+            type Tail = &'a [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                unsafe {
+                    let ptr = self.as_ptr();
+                    let a = &*ptr;
+                    let b = &*(ptr.offset(1) as *const [$Ft; count!($($At),*)]);
+                    (a, b)
+                }
+            }
+        }
+
+        impl<'a, $Ft> Cons for &'a mut [$Ft; count!($Ft $(,$At)*)] {
+            type Head = &'a mut $Ft;
+            type Tail = &'a mut [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                unsafe {
+                    let ptr = self.as_mut_ptr();
+                    let a = &mut *ptr;
+                    let b = &mut *(ptr.offset(1) as *mut [$Ft; count!($($At),*)]);
+                    (a, b)
+                }
             }
         }
     }
 }
 
-macro_rules! impl_second {
-    ($F:ident,) => {};
-    ($F:ident, $S:ident, $($A:ident,)*) => {
-        impl_second!{$S, $($A,)*}
-        impl<$F, $S, $($A),*> Second for ($F, $S, $($A),*) {
-            type Second = $S;
-            fn second(self) -> Self::Second {
-                self.1
-            }
-        }
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I, 9 J,}
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I,}
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H,}
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G,}
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F,}
+impl_list!{0 A, 1 B, 2 C, 3 D, 4 E,}
+impl_list!{0 A, 1 B, 2 C, 3 D,}
+impl_list!{0 A, 1 B, 2 C,}
+impl_list!{0 A, 1 B,}
+impl_list!{0 A,}
 
-        impl<'a, $F, $S, $($A),*> Second for &'a ($F, $S, $($A),*) {
-            type Second = &'a $S;
-            fn second(self) -> Self::Second {
-                &self.1
-            }
-        }
-
-        impl<'a, $F, $S, $($A),*> Second for &'a mut ($F, $S, $($A),*) {
-            type Second = &'a mut $S;
-            fn second(self) -> Self::Second {
-                &mut self.1
-            }
-        }
-        impl<'a, $S> Second for &'a [$S; count!($F, $S $(,$A)*)] {
-            type Second = &'a $S;
-            fn second(self) -> Self::Second {
-                &self[1]
-            }
-        }
-
-        impl<'a, $S> Second for &'a mut [$S; count!($F, $S $(,$A)*)] {
-            type Second = &'a mut $S;
-            fn second(self) -> Self::Second {
-                &mut self[1]
-            }
-        }
-    }
-}
-
-macro_rules! impl_third {
-    ($F:ident, $S:ident,) => {};
-    ($F:ident, $S:ident, $T:ident, $($A:ident,)*) => {
-        impl_third!{$S, $T, $($A,)*}
-        impl<$F, $S, $T, $($A),*> Third for ($F, $S, $T, $($A),*) {
-            type Third = $T;
-            fn third(self) -> Self::Third {
-                self.2
-            }
-        }
-
-        impl<'a, $F, $S, $T, $($A),*> Third for &'a ($F, $S, $T, $($A),*) {
-            type Third = &'a $T;
-            fn third(self) -> Self::Third {
-                &self.2
-            }
-        }
-
-        impl<'a, $F, $S, $T, $($A),*> Third for &'a mut ($F, $S, $T, $($A),*) {
-            type Third = &'a mut $T;
-            fn third(self) -> Self::Third {
-                &mut self.2
-            }
-        }
-        impl<'a, $T> Third for &'a [$T; count!($F, $S, $T $(,$A)*)] {
-            type Third = &'a $T;
-            fn third(self) -> Self::Third {
-                &self[2]
-            }
-        }
-
-        impl<'a, $T> Third for &'a mut [$T; count!($F, $S, $T $(,$A)*)] {
-            type Third = &'a mut $T;
-            fn third(self) -> Self::Third {
-                &mut self[2]
-            }
-        }
-    }
-}
-call!(impl_first);
-call!(impl_second);
-call!(impl_third);
-
-// Slice
-
-impl<'a, A> First for &'a [A] {
-    type First = Option<&'a A>;
+impl<T> First for T where T: Cons {
+    type First = T::Head;
     fn first(self) -> Self::First {
-        self.get(0)
+        self.uncons().0
     }
 }
 
-impl<'a, A> Second for &'a [A] {
-    type Second = Option<&'a A>;
+impl<T> Second for T
+    where T: Cons,
+          T::Tail: Cons
+{
+    type Second = <T::Tail as Cons>::Head;
     fn second(self) -> Self::Second {
-        self.get(1)
+        self.uncons().1.uncons().0
     }
 }
 
-impl<'a, A> Third for &'a [A] {
-    type Third = Option<&'a A>;
+impl<T> Third for T
+    where T: Cons,
+          T::Tail: Cons,
+          <T::Tail as Cons>::Tail: Cons,
+{
+    type Third = <<T::Tail as Cons>::Tail as Cons>::Head;
     fn third(self) -> Self::Third {
-        self.get(2)
-    }
-}
-
-// Mut Slice
-
-impl<'a, A> First for &'a mut [A] {
-    type First = Option<&'a mut A>;
-    fn first(self) -> Self::First {
-        self.get_mut(0)
-    }
-}
-
-impl<'a, A> Second for &'a mut [A] {
-    type Second = Option<&'a mut A>;
-    fn second(self) -> Self::Second {
-        self.get_mut(1)
-    }
-}
-
-impl<'a, A> Third for &'a mut [A] {
-    type Third = Option<&'a mut A>;
-    fn third(self) -> Self::Third {
-        self.get_mut(2)
+        self.uncons().1.uncons().1.uncons().0
     }
 }
 
