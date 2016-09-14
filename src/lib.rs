@@ -14,8 +14,19 @@ macro_rules! if_std {
     )*)
 }
 
+// Horrible hack to prevent old versions of rust from choking on `impl Trait`
+// when parsing.
 #[cfg(feature = "unstable")]
-pub mod functor;
+macro_rules! declare_unstable_modules {
+    () => { pub mod functor; }
+}
+
+#[cfg(not(feature = "unstable"))]
+macro_rules! declare_unstable_modules {
+    () => { }
+}
+
+declare_unstable_modules!();
 
 pub mod sequence;
 pub mod empty;
