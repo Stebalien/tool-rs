@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["compose","Compose two functions."],["fix","A Y-Combinator."]],"mod":[["prelude","Useful functions exported by `tool::functor`."]]});
