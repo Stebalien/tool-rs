@@ -3,18 +3,26 @@
 /// Useful functions exported by `tool::functor`.
 pub mod prelude {
     #[doc(inline)]
-    pub use super::{compose, fix};
+    pub use super::{compose, fix, flip};
 }
 
 /// Compose two functions.
 ///
 /// Takes functions `f` and `g` and returns `f ∘ g = |a: A| f(g(a))`.
-#[cfg(feature = "unstable")]
 pub fn compose<A, B, C, F, G>(f: F,  g: G) -> impl Fn(A) -> C
     where G: Fn(A) -> B,
           F: Fn(B) -> C,
 {
     move |a: A| { f(g(a)) }
+}
+
+/// Flip the argument order of a two-parameter function.
+///
+/// Specifically, `flip(f: Fn(a: A, b: B) -> C) = |b: B, a: A| f(a, b)`.
+pub fn flip<F, A, B, R>(f: F) -> impl Fn(B, A) -> R
+    where F: Fn(A, B) -> R
+{
+    move |a, b| f(b, a)
 }
 
 /// A Y-Combinator.

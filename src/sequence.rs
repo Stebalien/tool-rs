@@ -3,7 +3,7 @@
 /// Useful functions exported by `tool::sequence`.
 pub mod prelude {
     #[doc(inline)]
-    pub use super::{first, second, third, flip, uncons};
+    pub use super::{first, second, third, uncons};
 }
 
 /// A sequence with no items.
@@ -63,12 +63,6 @@ pub fn third<P: Third>(seq: P) -> P::Third {
 /// Split a sequence of at least one item into a head and tail.
 pub fn uncons<L: Cons>(list: L) -> (L::Head, L::Tail) {
     list.uncons()
-}
-
-// TODO: Generic?
-/// Flip a length two tuple.
-pub fn flip<A, B>((a, b): (A, B)) -> (B, A) {
-    (b, a)
 }
 
 /// We treat slices as infinite lists of `Option<Item>`s.
