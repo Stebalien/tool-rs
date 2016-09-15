@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["Empty","A sequence with no items."],["First","A sequence with a first item."],["Pair","A sequence with two items."],["Second","A sequence with a second item."],["Singleton","A sequence with one item."],["Third","A sequence with a third item."],["Triple","A sequence with three items."]]});
