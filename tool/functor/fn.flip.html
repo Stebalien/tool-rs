@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `Second` trait in crate `tool`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, Second">
+    <meta name="description" content="API documentation for the Rust `flip` fn in crate `tool`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, flip">
 
-    <title>tool::sequence::Second - Rust</title>
+    <title>tool::functor::flip - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>tool</a>::<wbr><a href='index.html'>sequence</a></p><script>window.sidebarCurrent = {name: 'Second', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>tool</a>::<wbr><a href='index.html'>functor</a></p><script>window.sidebarCurrent = {name: 'flip', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,29 +42,16 @@
         </form>
     </nav>
 
-    <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tool</a>::<wbr><a href='index.html'>sequence</a>::<wbr><a class='trait' href=''>Second</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>tool</a>::<wbr><a href='index.html'>functor</a>::<wbr><a class='fn' href=''>flip</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-56' class='srclink' href='../../src/tool/src/sequence.rs.html#30-33' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Second {
-    type <a href='#associatedtype.Second' class='type'>Second</a>;
-    fn <a href='#tymethod.second' class='fnname'>second</a>(self) -&gt; Self::Second;
-}</pre><div class='docblock'><p>A sequence with a second item.</p>
-</div>
-            <h2 id='associated-types'>Associated Types</h2>
-            <div class='methods'>
-        <h3 id='associatedtype.Second' class='method stab '><span id='Second.t' class='invisible'><code>type <a href='#associatedtype.Second' class='type'>Second</a></code></span></h3></div>
-            <h2 id='required-methods'>Required Methods</h2>
-            <div class='methods'>
-        <h3 id='tymethod.second' class='method stab '><span id='second.v' class='invisible'><code>fn <a href='#tymethod.second' class='fnname'>second</a>(self) -&gt; Self::Second</code></span></h3></div>
-        <h2 id='implementors'>Implementors</h2>
-        <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;T&gt; Second for T <span class='where'>where T: <a class='trait' href='../../tool/sequence/trait.Cons.html' title='tool::sequence::Cons'>Cons</a>, T::Tail: <a class='trait' href='../../tool/sequence/trait.Cons.html' title='tool::sequence::Cons'>Cons</a></span></code></li>
-</ul><script type="text/javascript" async
-                         src="../../implementors/tool/sequence/trait.Second.js">
-                 </script></section>
+               </span><a id='src-19' class='srclink' href='../../src/tool/src/functor.rs.html#22-26' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn flip&lt;F,&nbsp;A,&nbsp;B,&nbsp;R&gt;(f: F) -&gt; impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(B, A) -&gt; R <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B) -&gt; R</span></pre><div class='docblock'><p>Flip the argument order of a two-parameter function.</p>
+
+<p>Specifically, <code>flip(f: Fn(a: A, b: B) -&gt; C) = |b: B, a: A| f(a, b)</code>.</p>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

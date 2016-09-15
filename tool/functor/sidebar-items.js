@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["compose","Compose two functions."],["fix","A Y-Combinator."]],"mod":[["prelude","Useful functions exported by `tool::functor`."]]});
+initSidebarItems({"fn":[["compose","Compose two functions."],["fix","A Y-Combinator."],["flip","Flip the argument order of a two-parameter function."]],"mod":[["prelude","Useful functions exported by `tool::functor`."]]});
