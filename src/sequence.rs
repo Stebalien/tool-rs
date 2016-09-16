@@ -128,7 +128,6 @@ macro_rules! impl_list {
         impl<'a, $Ft, $($At),*> Cons for &'a mut ($Ft, $($At),*) {
             type Head = &'a mut $Ft;
             type Tail = ($(&'a mut $At,)*);
-            #[inline(always)]
             fn uncons(self) -> (Self::Head, Self::Tail) {
                 expr!((&mut self.$Fi, ($(&mut self.$Ai,)*)))
             }
