@@ -134,6 +134,21 @@ macro_rules! impl_list {
             }
         }
 
+        impl<$Ft> Cons for [$Ft; count!($Ft $(,$At)*)] {
+            type Head = $Ft;
+            type Tail = [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                use std::{ptr, mem};
+                unsafe {
+                    let ptr = self.as_ptr();
+                    let a = ptr::read(ptr);
+                    let b = ptr::read(ptr.offset(1) as *const [$Ft; count!($($At),*)]);
+                    mem::forget(self);
+                    (a, b)
+                }
+            }
+        }
+
         impl<'a, $Ft> Cons for &'a [$Ft; count!($Ft $(,$At)*)] {
             type Head = &'a $Ft;
             type Tail = &'a [$Ft; count!($($At),*)];

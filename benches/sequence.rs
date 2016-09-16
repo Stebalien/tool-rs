@@ -35,3 +35,20 @@ fn bench_third_tuple(b: &mut test::Bencher) {
         test::black_box(third(test::black_box(v)))
     })
 }
+
+
+#[bench]
+fn bench_first_array_long(b: &mut test::Bencher) {
+    let v = [0i32; 10];
+    b.iter(|| {
+        test::black_box(first(test::black_box(v)))
+    })
+}
+
+#[bench]
+fn bench_first_array_short(b: &mut test::Bencher) {
+    let v = [0i32; 1];
+    b.iter(|| {
+        test::black_box(first(test::black_box(v)))
+    })
+}
