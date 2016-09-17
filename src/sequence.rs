@@ -133,6 +133,31 @@ macro_rules! impl_list {
             }
         }
 
+        // Sometimes you just have a double ref.
+        impl<'a, 'b, $Ft, $($At),*> Cons for &'a &'b ($Ft, $($At),*) {
+            type Head = &'b $Ft;
+            type Tail = ($(&'b $At,)*);
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
+            }
+        }
+
+        impl<'a, 'b, $Ft, $($At),*> Cons for &'a mut &'b ($Ft, $($At),*) {
+            type Head = &'b $Ft;
+            type Tail = ($(&'b $At,)*);
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
+            }
+        }
+
+        impl<'b, 'a: 'b, $Ft, $($At),*> Cons for &'a mut &'b mut ($Ft, $($At),*) {
+            type Head = &'b mut $Ft;
+            type Tail = ($(&'b mut $At,)*);
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
+            }
+        }
+
         impl<$Ft> Cons for [$Ft; count!($Ft $(,$At)*)] {
             type Head = $Ft;
             type Tail = [$Ft; count!($($At),*)];
@@ -171,6 +196,31 @@ macro_rules! impl_list {
                     let b = &mut *(ptr.offset(1) as *mut [$Ft; count!($($At),*)]);
                     (a, b)
                 }
+            }
+        }
+
+        // Sometimes you just have a double ref.
+        impl<'a, 'b, $Ft> Cons for &'a &'b [$Ft; count!($Ft $(,$At)*)] {
+            type Head = &'b $Ft;
+            type Tail = &'b [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
+            }
+        }
+
+        impl<'a, 'b, $Ft> Cons for &'a mut &'b [$Ft; count!($Ft $(,$At)*)] {
+            type Head = &'b $Ft;
+            type Tail = &'b [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
+            }
+        }
+
+        impl<'b, 'a: 'b, $Ft> Cons for &'a mut &'b mut [$Ft; count!($Ft $(,$At)*)] {
+            type Head = &'b mut $Ft;
+            type Tail = &'b mut [$Ft; count!($($At),*)];
+            fn uncons(self) -> (Self::Head, Self::Tail) {
+                (*self).uncons()
             }
         }
     }
