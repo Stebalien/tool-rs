@@ -21,3 +21,13 @@ fn test_uncons() {
     assert_eq!(a, 1);
     assert_eq!(b, [2, 3, 4]);
 }
+
+#[test]
+fn test_double_ref() {
+    let a = (1, true);
+    let b = (2, false);
+    let v = vec![&a, &b];
+
+    let out: Vec<&bool> = v.iter().map(second).collect();
+    assert_eq!(out, vec![&true, &false]);
+}
