@@ -6,7 +6,7 @@ pub mod prelude {
     pub use super::{empty, non_empty};
 }
 
-/// Things that can be "is_empty".
+/// Things that can be "empty".
 pub trait IsEmpty {
     fn is_empty(&self) -> bool;
 }
