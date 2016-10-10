@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-8' class='srclink' href='../../src/tool/src/functor.rs.html#12-17' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-235' class='srclink' href='../../src/tool/src/functor.rs.html#12-17' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn compose&lt;A,&nbsp;B,&nbsp;C,&nbsp;F,&nbsp;G&gt;(f: F, g: G) -&gt; impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A) -&gt; C <span class='where'>where G: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A) -&gt; B, F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(B) -&gt; C</span></pre><div class='docblock'><p>Compose two functions.</p>
 
 <p>Takes functions <code>f</code> and <code>g</code> and returns <code>f ∘ g = |a: A| f(g(a))</code>.</p>
