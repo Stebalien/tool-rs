@@ -41,12 +41,3 @@ fn main() {
 ## Compile-Time Flags (cargo features)
 
 * `use_std` (default: enabled) - Disable this if you're project doesn't depend on libstd.
-* `unstable` (default: disabled) - Enable this if you are targeting nightly and
-  want to be able to use the latest unstable features.
-  
-### Unstable
-
-Currently, the following features are unstable:
-
-* The `functor` module. Functors require the `impl Trait` feature so this module
-  will stabilize when `conservative_impl_trait` stabilizes.
