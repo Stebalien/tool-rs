@@ -9,7 +9,7 @@ pub mod prelude {
 /// Compose two functions.
 ///
 /// Takes functions `f` and `g` and returns `f ∘ g = |a: A| f(g(a))`.
-pub fn compose<A, B, C, F, G>(f: F, g: G) -> impl Fn(A) -> C
+pub const fn compose<A, B, C, F, G>(f: F, g: G) -> impl Fn(A) -> C
 where
     G: Fn(A) -> B,
     F: Fn(B) -> C,
@@ -20,7 +20,7 @@ where
 /// Flip the argument order of a two-parameter function.
 ///
 /// Specifically, `flip(f: Fn(a: A, b: B) -> C) = |b: B, a: A| f(a, b)`.
-pub fn flip<F, A, B, R>(f: F) -> impl Fn(B, A) -> R
+pub const fn flip<F, A, B, R>(f: F) -> impl Fn(B, A) -> R
 where
     F: Fn(A, B) -> R,
 {
@@ -29,7 +29,7 @@ where
 
 /// A Y-Combinator.
 ///
-/// Takes a function `f` and returns a fixpoint of `f`.
+/// Takes a function `f` and returns a recursive closure.
 ///
 /// In English, this allows you to define a recursive closure, something that's
 /// normally quite hard to do in rust. Rather than try to explain it, here's an
@@ -49,7 +49,7 @@ where
 /// });
 /// assert_eq!(55, fib(10));
 /// ```
-pub fn fix<A, B, F>(f: F) -> impl Fn(A) -> B
+pub const fn fix<A, B, F>(f: F) -> impl Fn(A) -> B
 where
     F: Fn(&dyn Fn(A) -> B, A) -> B,
 {

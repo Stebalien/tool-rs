@@ -3,7 +3,7 @@
 /// The identity function.
 ///
 /// Literally, just returns the passed-in value.
-pub fn id<T>(value: T) -> T {
+pub const fn id<T>(value: T) -> T {
     value
 }
 
