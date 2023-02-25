@@ -9,18 +9,20 @@ pub mod prelude {
 /// Compose two functions.
 ///
 /// Takes functions `f` and `g` and returns `f ∘ g = |a: A| f(g(a))`.
-pub fn compose<A, B, C, F, G>(f: F,  g: G) -> impl Fn(A) -> C
-    where G: Fn(A) -> B,
-          F: Fn(B) -> C,
+pub fn compose<A, B, C, F, G>(f: F, g: G) -> impl Fn(A) -> C
+where
+    G: Fn(A) -> B,
+    F: Fn(B) -> C,
 {
-    move |a: A| { f(g(a)) }
+    move |a: A| f(g(a))
 }
 
 /// Flip the argument order of a two-parameter function.
 ///
 /// Specifically, `flip(f: Fn(a: A, b: B) -> C) = |b: B, a: A| f(a, b)`.
 pub fn flip<F, A, B, R>(f: F) -> impl Fn(B, A) -> R
-    where F: Fn(A, B) -> R
+where
+    F: Fn(A, B) -> R,
 {
     move |a, b| f(b, a)
 }
@@ -48,7 +50,8 @@ pub fn flip<F, A, B, R>(f: F) -> impl Fn(B, A) -> R
 /// assert_eq!(55, fib(10));
 /// ```
 pub fn fix<A, B, F>(f: F) -> impl Fn(A) -> B
-    where F: Fn(&dyn Fn(A)-> B, A) -> B
+where
+    F: Fn(&dyn Fn(A) -> B, A) -> B,
 {
     use std::cell::Cell;
 
@@ -57,7 +60,7 @@ pub fn fix<A, B, F>(f: F) -> impl Fn(A) -> B
         let tmp_fn = |_: A| -> B { panic!("Hmm... not good.") };
         let (fun_holder, fun);
         fun_holder = Cell::new(&tmp_fn as &dyn Fn(A) -> B);
-        fun = |ai: A| { f(fun_holder.get(), ai) };
+        fun = |ai: A| f(fun_holder.get(), ai);
         fun_holder.set(&fun as &dyn Fn(A) -> B);
         f(fun_holder.get(), a)
     }

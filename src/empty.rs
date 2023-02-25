@@ -123,25 +123,25 @@ if_std! {
 
     impl IsEmpty for CString {
         fn is_empty(&self) -> bool {
-            (&**self).is_empty()
+            <CStr as IsEmpty>::is_empty(self)
         }
     }
 
     impl<T: ?Sized + IsEmpty> IsEmpty for Box<T> {
         fn is_empty(&self) -> bool {
-            (&**self).is_empty()
+            (**self).is_empty()
         }
     }
 
     impl<T: ?Sized + IsEmpty> IsEmpty for Rc<T> {
         fn is_empty(&self) -> bool {
-            (&**self).is_empty()
+            (**self).is_empty()
         }
     }
 
     impl<T: ?Sized + IsEmpty> IsEmpty for Arc<T> {
         fn is_empty(&self) -> bool {
-            (&**self).is_empty()
+            (**self).is_empty()
         }
     }
 }

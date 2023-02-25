@@ -70,11 +70,11 @@ impl<'a, A> Cons for &'a [A] {
     type Head = Option<&'a A>;
     type Tail = &'a [A];
     fn uncons(self) -> (Self::Head, Self::Tail) {
-        if self.len() > 0 {
+        if self.is_empty() {
+            (None, &[])
+        } else {
             let (a, b) = self.split_at(1);
             (Some(&a[0]), b)
-        } else {
-            (None, &[])
         }
     }
 }
@@ -84,21 +84,25 @@ impl<'a, A> Cons for &'a mut [A] {
     type Head = Option<&'a mut A>;
     type Tail = &'a mut [A];
     fn uncons(self) -> (Self::Head, Self::Tail) {
-        if self.len() > 0 {
+        if self.is_empty() {
+            (None, &mut [])
+        } else {
             let (a, b) = self.split_at_mut(1);
             (Some(&mut a[0]), b)
-        } else {
-            (None, &mut [])
         }
     }
 }
 
 macro_rules! one {
-    ($($t:tt)*) => {1}
+    ($($t:tt)*) => {
+        1
+    };
 }
 
 macro_rules! expr {
-    ($e:expr) => {$e}
+    ($e:expr) => {
+        $e
+    };
 }
 macro_rules! count {
     ($($t:ident),*) => {
@@ -226,18 +230,21 @@ macro_rules! impl_list {
     }
 }
 
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I, 9 J,}
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I,}
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H,}
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G,}
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E, 5 F,}
-impl_list!{0 A, 1 B, 2 C, 3 D, 4 E,}
-impl_list!{0 A, 1 B, 2 C, 3 D,}
-impl_list!{0 A, 1 B, 2 C,}
-impl_list!{0 A, 1 B,}
-impl_list!{0 A,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I, 9 J,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H, 8 I,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G, 7 H,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E, 5 F, 6 G,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E, 5 F,}
+impl_list! {0 A, 1 B, 2 C, 3 D, 4 E,}
+impl_list! {0 A, 1 B, 2 C, 3 D,}
+impl_list! {0 A, 1 B, 2 C,}
+impl_list! {0 A, 1 B,}
+impl_list! {0 A,}
 
-impl<T> First for T where T: Cons {
+impl<T> First for T
+where
+    T: Cons,
+{
     type First = T::Head;
     fn first(self) -> Self::First {
         self.uncons().0
@@ -245,8 +252,9 @@ impl<T> First for T where T: Cons {
 }
 
 impl<T> Second for T
-    where T: Cons,
-          T::Tail: Cons
+where
+    T: Cons,
+    T::Tail: Cons,
 {
     type Second = <T::Tail as Cons>::Head;
     fn second(self) -> Self::Second {
@@ -255,9 +263,10 @@ impl<T> Second for T
 }
 
 impl<T> Third for T
-    where T: Cons,
-          T::Tail: Cons,
-          <T::Tail as Cons>::Tail: Cons,
+where
+    T: Cons,
+    T::Tail: Cons,
+    <T::Tail as Cons>::Tail: Cons,
 {
     type Third = <<T::Tail as Cons>::Tail as Cons>::Head;
     fn third(self) -> Self::Third {
@@ -289,4 +298,3 @@ impl<'a, A, B, C> Triple for &'a (A, B, C) {}
 impl<'a, A, B, C> Triple for &'a mut (A, B, C) {}
 impl<'a, A> Triple for &'a [A; 3] {}
 impl<'a, A> Triple for &'a mut [A; 3] {}
-
